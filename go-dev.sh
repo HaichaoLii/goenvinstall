@@ -19,8 +19,9 @@ esac
 rm -f go1.13.5.linux*
 cat >> ~/.bashrc <<EOF
 export GOROOT=/usr/local/go
-export PATH=$PATH:$GOROOT/bin
+export PATH=\$PATH:\$GOROOT/bin
 export GOPATH=~/go
+export KUBECONFIG=~/admin.conf
 EOF
 source ~/.bashrc
 #golang
