@@ -1,7 +1,8 @@
 #!/bin/bash
 set -ex
 ARCH=`uname -m`
-#golang sdk
+PROJECT="github.com/rook/rook"
+#golang
 case ${ARCH} in
   x86_64)
     wget -q https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz
@@ -24,11 +25,11 @@ export GOPATH=~/go
 export KUBECONFIG=~/admin.conf
 EOF
 source ~/.bashrc
-#golang
+#docker
 sudo apt install -y docker.io
 sudo chmod 666 /var/run/docker.sock
-#rook code
-go get -d github.com/rook/rook
+#project code
+go get -d $PROJECT
 #kubernetes
 ./kubeadm.sh up
 
